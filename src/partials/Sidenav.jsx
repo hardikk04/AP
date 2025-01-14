@@ -14,27 +14,27 @@ const Sidenav = () => {
         <ul>
           <li>
             <Link className="font-medium block text-lg p-5 hover:bg-[#6556cd] hover:text-white text-gray-500">
-              <i class="ri-fire-fill "></i> Trending
+              <i className="ri-fire-fill "></i> Trending
             </Link>
           </li>
           <li>
             <Link className="font-medium block text-lg p-5 hover:bg-[#6556cd] hover:text-white text-gray-500">
-              <i class="ri-sparkling-2-fill "></i> Popular
+              <i className="ri-sparkling-2-fill "></i> Popular
             </Link>
           </li>
           <li>
             <Link className="font-medium block text-lg p-5 hover:bg-[#6556cd] hover:text-white text-gray-500">
-              <i class="ri-movie-2-ai-fill"></i> Movies
+              <i className="ri-movie-2-ai-fill"></i> Movies
             </Link>
           </li>
           <li>
             <Link className="font-medium block text-lg p-5 hover:bg-[#6556cd] hover:text-white text-gray-500">
-              <i class="ri-tv-2-fill "></i> Tv Shows
+              <i className="ri-tv-2-fill "></i> Tv Shows
             </Link>
           </li>
           <li>
             <Link className="font-medium block text-lg p-5 hover:bg-[#6556cd] hover:text-white text-gray-500">
-              <i class="ri-team-fill "></i> People
+              <i className="ri-team-fill "></i> People
             </Link>
           </li>
         </ul>
@@ -47,12 +47,12 @@ const Sidenav = () => {
         <ul>
           <li>
             <Link className="font-medium block text-lg p-5 hover:bg-[#6556cd] hover:text-white text-gray-500">
-              <i class="ri-information-fill "></i> About AP
+              <i className="ri-information-fill "></i> About AP
             </Link>
           </li>
           <li>
             <Link className="font-medium block text-lg p-5 hover:bg-[#6556cd] hover:text-white text-gray-500">
-              <i class="ri-phone-fill "></i> Contact Us
+              <i className="ri-phone-fill "></i> Contact Us
             </Link>
           </li>
         </ul>
