@@ -44,16 +44,16 @@ const HorizontalScroll = () => {
             handleCategory={setCategory}
           ></Dropdown>
         </div>
-        <div className="w-full h-[50vh] flex gap-[1vw] pl-5 overflow-x-auto pb-[1vw]">
+        <div className="w-full sm:h-[45vh] flex gap-[1vw] pl-5 overflow-x-auto pb-[1vw] sm:pb-[4vw]">
           {trendingData.map((trending, index) => {
             return (
               <div
                 key={index}
-                className="card w-[20%] h-full shrink-0 rounded-md overflow-hidden bg-zinc-800"
+                className="card w-[20%] sm:w-[40%] md:w-[50%] h-full shrink-0 rounded-md overflow-hidden bg-zinc-800"
               >
                 <Link>
                   <img
-                    className="h-[60%] w-full object-cover rounded-md"
+                    className="w-full object-cover rounded-md"
                     src={
                       trending.backdrop_path || trending.profile_path
                         ? `https://image.tmdb.org/t/p/original/${
@@ -66,7 +66,7 @@ const HorizontalScroll = () => {
                     alt=""
                   />
                 </Link>
-                <div className="h-[40%] p-3">
+                <div className="p-3">
                   <h3 className="text-xl font-bold text-zinc-100">
                     {trending.name ||
                       trending.title ||
@@ -80,8 +80,8 @@ const HorizontalScroll = () => {
                       : trending.overview.slice(0, 60)}
                     <Link className="text-blue-500 text-sm">more...</Link>
                   </p>
-                  <div className="flex justify-between items-center">
-                    <p className="flex gap-2 mt-2">
+                  <div className="flex justify-between items-end">
+                    <p className="flex gap-2 mt-2 sm:mt-5">
                       <i className="ri-megaphone-fill text-yellow-500"></i>
                       {trending.release_date || "Soon..."}
                     </p>

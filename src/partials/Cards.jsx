@@ -18,7 +18,7 @@ const Cards = ({ data }) => {
         return (
           <div
             key={index}
-            className="card w-[18%] h-full shrink-0 rounded-md overflow-hidden bg-zinc-800"
+            className="card w-[18%] sm:w-[49%] md:w-[49%] h-full shrink-0 rounded-md overflow-hidden bg-zinc-800"
           >
             <img
               className="h-[60%] w-full object-cover rounded-md"

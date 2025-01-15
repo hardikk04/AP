@@ -6,6 +6,7 @@ import Loading from "../partials/Loading";
 import axios from "../utils/axios";
 import { useNavigate } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Sidenav from "../partials/Sidenav";
 
 const Trending = () => {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const Trending = () => {
 
   return trendingData.length > 0 ? (
     <div className="p-[2vw] w-full bg-[#1f1e24]">
-      <div className=" flex justify-between h-fit  w-full items-center">
+      <div className=" flex justify-between h-fit w-full items-center sm:flex-col sm:items-start sm:gap-[2vw] md:flex-col md:items-start md:gap-[2vw]">
         <div className="flex text-2xl items-center text-zinc-500 gap-2 font-bold">
           <i
             onClick={() => navigate(-1)}

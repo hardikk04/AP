@@ -1,12 +1,24 @@
+import gsap from "gsap";
 import React from "react";
 import { Link } from "react-router-dom";
 
 const Sidenav = () => {
   return (
-    <div className="w-[20%] h-full border-r-[1px] border-gray-600 p-5 pl-[1.5vw]">
-      <h2 className="text-2xl text-white font-bold">
-        <i className="ri-tv-2-fill text-[#6556cd]"></i> AP TV
-      </h2>
+    <div className="w-[20%] sidenav sm:left-[-100%] sm:absolute sm:bg-[#1f1e24] sm:w-[60%]  md:left-[-100%] md:absolute md:bg-[#1f1e24] md:w-[60%] z-[1] h-full border-r-[1px] border-gray-600 p-5 pl-[1.5vw]">
+      <div className="w-full flex justify-between">
+        <h2 className="text-2xl text-white font-bold">
+          <i className="ri-tv-2-fill text-[#6556cd]"></i> AP TV
+        </h2>
+        <i
+          onClick={() => {
+            gsap.to(".sidenav", {
+              left: "-100%",
+              duration:.5
+            });
+          }}
+          className="lg:hidden xl:hidden xxl:hidden ri-close-large-line text-2xl text-white"
+        ></i>
+      </div>
       <nav>
         <h3 className="text-white font-semibold mt-[2vw] mb-[1vw] text-xl">
           New Feeds

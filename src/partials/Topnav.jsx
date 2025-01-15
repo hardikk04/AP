@@ -1,6 +1,7 @@
 import axios from "../utils/axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import gsap from "gsap";
 
 const Topnav = () => {
   const [query, setquery] = useState("");
@@ -21,6 +22,15 @@ const Topnav = () => {
   }, [query]);
   return (
     <div className="w-full flex justify-center items-center text-zinc-200 pt-[1vw] relative pb-[1vw]">
+      <i
+        onClick={() => {
+          gsap.to(".sidenav", {
+            left: "0",
+            duration: 0.5,
+          });
+        }}
+        className="lg:hidden xl:hidden xxl:hidden ri-menu-2-line text-2xl absolute left-2"
+      ></i>
       <i className="ri-search-line text-2xl"></i>
       <input
         className="w-1/2 bg-transparent ml-[1vw] text-zinc-200 text-xl outline-none"
@@ -36,7 +46,7 @@ const Topnav = () => {
         ></i>
       )}
 
-      <div className="w-1/2 max-h-[50vh] absolute top-[110%] bg-zinc-300 rounded-md overflow-auto z-10">
+      <div className="w-1/2 md:w-full sm:w-full max-h-[50vh] sm:max-h-[80vh] md:max-h-[80vh] absolute top-[110%] bg-zinc-300 rounded-md overflow-auto z-10">
         {searchedData &&
           searchedData.map((recommend, index) => (
             <Link
@@ -44,7 +54,7 @@ const Topnav = () => {
               className="p-10 py-6 w-full bg-gray-400 border-b-2 border-zinc-200 hover:text-black hover:bg-gray-500 duration-300 rounded-md flex items-center gap-[2vw]"
             >
               <img
-                className="h-[5vw] w-[8vw] object-cover"
+                className="h-[5vw] w-[8vw] md:w-[12vw] md:h-[12vw] object-cover"
                 src={
                   recommend.backdrop_path || recommend.profile_path
                     ? `https://image.tmdb.org/t/p/original/${

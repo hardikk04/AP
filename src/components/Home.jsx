@@ -28,7 +28,7 @@ const Home = () => {
   return headerWallpaper ? (
     <div className="w-full h-screen bg-[#1f1e24] flex">
       <Sidenav />
-      <div className="w-[80%] h-full overflow-x-auto">
+      <div className="sm:w-full md:w-full w-[80%] h-full overflow-x-auto">
         <Topnav />
         <Header data={headerWallpaper} />
         <HorizontalScroll />
