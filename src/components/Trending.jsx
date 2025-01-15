@@ -1,14 +1,18 @@
+// Libraries imports
 import React, { useEffect, useState } from "react";
+import axios from "../utils/axios";
+import { useNavigate } from "react-router-dom";
+import InfiniteScroll from "react-infinite-scroll-component";
+
+// Components imports
 import Dropdown from "../partials/Dropdown";
 import Topnav from "../partials/Topnav";
 import Cards from "../partials/Cards";
 import Loading from "../partials/Loading";
-import axios from "../utils/axios";
-import { useNavigate } from "react-router-dom";
-import InfiniteScroll from "react-infinite-scroll-component";
-import Sidenav from "../partials/Sidenav";
 
 const Trending = () => {
+  document.title = "AP | TRENDING";
+
   const navigate = useNavigate();
 
   const [category, setCategory] = useState("all");

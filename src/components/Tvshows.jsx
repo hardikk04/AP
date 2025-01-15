@@ -1,13 +1,18 @@
+// Libraries imports
 import React, { useEffect, useState } from "react";
-import Dropdown from "../partials/Dropdown";
-import Topnav from "../partials/Topnav";
-import Cards from "../partials/Cards";
-import Loading from "../partials/Loading";
 import axios from "../utils/axios";
 import { useNavigate } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 
+// Components imports
+import Dropdown from "../partials/Dropdown";
+import Topnav from "../partials/Topnav";
+import Cards from "../partials/Cards";
+import Loading from "../partials/Loading";
+
 const Tvshows = () => {
+  document.title = "AP | TVSHOW";
+
   const navigate = useNavigate();
 
   const [category, setCategory] = useState("on_the_air");

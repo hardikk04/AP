@@ -1,8 +1,10 @@
+// Libraries imports
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import Dropdown from "./Dropdown";
-
 import axios from "../utils/axios";
+
+// Components imports
+import Dropdown from "./Dropdown";
 
 const HorizontalScroll = () => {
   const [trendingData, setTrendingData] = useState(null);

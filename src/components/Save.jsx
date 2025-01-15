@@ -1,13 +1,15 @@
+// Libraries imports
 import React, { useEffect, useState } from "react";
-import Dropdown from "../partials/Dropdown";
+import { useNavigate } from "react-router-dom";
+
+// Components imports
 import Topnav from "../partials/Topnav";
 import Cards from "../partials/Cards";
 import Loading from "../partials/Loading";
-import axios from "../utils/axios";
-import { useNavigate } from "react-router-dom";
-import InfiniteScroll from "react-infinite-scroll-component";
 
 const Save = () => {
+  document.title = "AP | SAVE";
+
   const navigate = useNavigate();
 
   const [category, setCategory] = useState("popular");
