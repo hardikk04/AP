@@ -20,7 +20,7 @@ const Topnav = () => {
     getSearches();
   }, [query]);
   return (
-    <div className="w-full flex justify-center items-center text-zinc-200 pt-[1vw] relative">
+    <div className="w-full flex justify-center items-center text-zinc-200 pt-[1vw] relative pb-[1vw]">
       <i className="ri-search-line text-2xl"></i>
       <input
         className="w-1/2 bg-transparent ml-[1vw] text-zinc-200 text-xl outline-none"
