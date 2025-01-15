@@ -2,7 +2,7 @@ import React from "react";
 
 function Loading() {
   return (
-    <div className="containerr">
+    <div className="containerr h-full w-full">
       <div className="loadingspinner">
         <div id="square1"></div>
         <div id="square2"></div>

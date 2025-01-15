@@ -7,34 +7,33 @@ import axios from "../utils/axios";
 import { useNavigate } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-const Trending = () => {
+const Popular = () => {
   const navigate = useNavigate();
 
-  const [category, setCategory] = useState("all");
-  const [duration, setDuration] = useState("day");
-  const [trendingData, setTrendingData] = useState([]);
+  const [category, setCategory] = useState("movie");
+  const [popularData, setPopularData] = useState([]);
   const [page, setPage] = useState(1);
 
-  const getTrending = async () => {
+  const getPopular = async () => {
     try {
       const { data } = await axios.get(
-        `/trending/${category.toLowerCase()}/${duration.toLowerCase()}?page=${page}`
+        `${category.toLowerCase()}/popular?page=${page}`
       );
 
-      if (trendingData.length > 20) {
-        return setTrendingData(data.results);
+      if (popularData.length > 20) {
+        return setPopularData(data.results);
       }
-      setTrendingData((prev) => [...prev, ...data.results]);
+      setPopularData((prev) => [...prev, ...data.results]);
       setPage((prev) => prev + 1);
     } catch (error) {
       console.log("ERROR : ", error);
     }
   };
   useEffect(() => {
-    getTrending();
-  }, [category, duration]);
+    getPopular();
+  }, [category]);
 
-  return trendingData.length > 0 ? (
+  return popularData.length > 0 ? (
     <div className="p-[2vw] w-full bg-[#1f1e24]">
       <div className=" flex justify-between h-fit  w-full items-center">
         <div className="flex text-2xl items-center text-zinc-500 gap-2 font-bold">
@@ -42,34 +41,31 @@ const Trending = () => {
             onClick={() => navigate(-1)}
             className="cursor-pointer ri-arrow-left-line hover:text-[#6556cd]"
           ></i>
-          <h2 className="uppercase text-2xl">Trending</h2>
+          <h2 className="uppercase text-2xl">Popular</h2>
         </div>
         <Topnav></Topnav>
         <div className="flex gap-4">
           <Dropdown
             title={"Category"}
-            option={["all", "tv", "movie", "person"]}
+            option={["tv", "movie", "person"]}
             handleCategory={setCategory}
-          ></Dropdown>
-          <Dropdown
-            title={"Duration"}
-            option={["day", "week"]}
-            handleCategory={setDuration}
           ></Dropdown>
         </div>
       </div>
       <InfiniteScroll
-        dataLength={trendingData.length}
-        next={getTrending}
+        dataLength={popularData.length}
+        next={getPopular}
         hasMore={true}
         loader={<h1>Loading...</h1>}
       >
-        <Cards data={trendingData}></Cards>
+        <Cards data={popularData}></Cards>
       </InfiniteScroll>
     </div>
   ) : (
-    <Loading />
+    <div className="w-full h-screen bg-[#1f1e24] flex">
+      <Loading></Loading>
+    </div>
   );
 };
 
-export default Trending;
+export default Popular;

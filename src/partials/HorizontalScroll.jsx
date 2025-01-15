@@ -74,7 +74,7 @@ const HorizontalScroll = () => {
                       <i className="ri-megaphone-fill text-yellow-500"></i>
                       {trending.release_date || "Soon..."}
                     </p>
-                    <i class="ri-bookmark-line text-2xl text-white"></i>
+                    <i className="ri-bookmark-line text-2xl text-white"></i>
                   </div>
                 </div>
               </div>

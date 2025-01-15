@@ -21,22 +21,34 @@ const Sidenav = () => {
             </Link>
           </li>
           <li>
-            <Link className="font-medium block text-lg p-5 hover:bg-[#6556cd] hover:text-white text-gray-500">
+            <Link
+              to="/popular"
+              className="font-medium block text-lg p-5 hover:bg-[#6556cd] hover:text-white text-gray-500"
+            >
               <i className="ri-sparkling-2-fill "></i> Popular
             </Link>
           </li>
           <li>
-            <Link className="font-medium block text-lg p-5 hover:bg-[#6556cd] hover:text-white text-gray-500">
+            <Link
+              to="/movie"
+              className="font-medium block text-lg p-5 hover:bg-[#6556cd] hover:text-white text-gray-500"
+            >
               <i className="ri-movie-2-ai-fill"></i> Movies
             </Link>
           </li>
           <li>
-            <Link className="font-medium block text-lg p-5 hover:bg-[#6556cd] hover:text-white text-gray-500">
+            <Link
+              to="/tvshows"
+              className="font-medium block text-lg p-5 hover:bg-[#6556cd] hover:text-white text-gray-500"
+            >
               <i className="ri-tv-2-fill "></i> Tv Shows
             </Link>
           </li>
           <li>
-            <Link className="font-medium block text-lg p-5 hover:bg-[#6556cd] hover:text-white text-gray-500">
+            <Link
+              to="/people"
+              className="font-medium block text-lg p-5 hover:bg-[#6556cd] hover:text-white text-gray-500"
+            >
               <i className="ri-team-fill "></i> People
             </Link>
           </li>

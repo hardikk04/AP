@@ -29,7 +29,7 @@ const Cards = ({ data }) => {
                   trending.original_name ||
                   trending.original_title}
               </h3>
-              <i class="ri-bookmark-line text-2xl text-white"></i>
+              <i className="ri-bookmark-line text-2xl text-white"></i>
             </div>
           </div>
         );
