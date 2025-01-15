@@ -22,13 +22,14 @@ const Cards = ({ data }) => {
               }
               alt=""
             />
-            <div className="h-[40%] p-3">
+            <div className="h-[40%] p-3 flex justify-between items-center">
               <h3 className="text-xl font-bold text-zinc-100">
                 {trending.name ||
                   trending.title ||
                   trending.original_name ||
                   trending.original_title}
               </h3>
+              <i class="ri-bookmark-line text-2xl text-white"></i>
             </div>
           </div>
         );

@@ -40,19 +40,21 @@ const HorizontalScroll = () => {
                 key={index}
                 className="card w-[20%] h-full shrink-0 rounded-md overflow-hidden bg-zinc-800"
               >
-                <img
-                  className="h-[60%] w-full object-cover rounded-md"
-                  src={
-                    trending.backdrop_path || trending.profile_path
-                      ? `https://image.tmdb.org/t/p/original/${
-                          trending.backdrop_path ||
-                          trending.poster_path ||
-                          trending.profile_path
-                        }`
-                      : "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
-                  }
-                  alt=""
-                />
+                <Link>
+                  <img
+                    className="h-[60%] w-full object-cover rounded-md"
+                    src={
+                      trending.backdrop_path || trending.profile_path
+                        ? `https://image.tmdb.org/t/p/original/${
+                            trending.backdrop_path ||
+                            trending.poster_path ||
+                            trending.profile_path
+                          }`
+                        : "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
+                    }
+                    alt=""
+                  />
+                </Link>
                 <div className="h-[40%] p-3">
                   <h3 className="text-xl font-bold text-zinc-100">
                     {trending.name ||
@@ -67,10 +69,13 @@ const HorizontalScroll = () => {
                       : trending.overview.slice(0, 60)}
                     <Link className="text-blue-500 text-sm">more...</Link>
                   </p>
-                  <p className="flex gap-2 mt-2">
-                    <i className="ri-megaphone-fill text-yellow-500"></i>
-                    {trending.release_date || "Soon..."}
-                  </p>
+                  <div className="flex justify-between items-center">
+                    <p className="flex gap-2 mt-2">
+                      <i className="ri-megaphone-fill text-yellow-500"></i>
+                      {trending.release_date || "Soon..."}
+                    </p>
+                    <i class="ri-bookmark-line text-2xl text-white"></i>
+                  </div>
                 </div>
               </div>
             );

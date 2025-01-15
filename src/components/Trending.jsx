@@ -5,21 +5,24 @@ import Cards from "../partials/Cards";
 import Loading from "../partials/Loading";
 import axios from "../utils/axios";
 import { useNavigate } from "react-router-dom";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const Trending = () => {
   const navigate = useNavigate();
 
   const [category, setCategory] = useState("all");
   const [duration, setDuration] = useState("day");
-  const [trendingData, setTrendingData] = useState(null);
+  const [trendingData, setTrendingData] = useState([]);
+  const [page, setPage] = useState(1);
 
   const getTrending = async () => {
     try {
       const { data } = await axios.get(
-        `/trending/${category.toLowerCase()}/${duration.toLowerCase()}`
+        `/trending/${category.toLowerCase()}/${duration.toLowerCase()}?page=${page}`
       );
 
-      setTrendingData(data.results);
+      setTrendingData((prev) => [...prev, ...data.results]);
+      setPage((prev) => prev + 1);
     } catch (error) {
       console.log("ERROR : ", error);
     }
@@ -28,7 +31,7 @@ const Trending = () => {
     getTrending();
   }, [category, duration]);
 
-  return trendingData ? (
+  return trendingData.length > 0 ? (
     <div className="p-[2vw] w-full bg-[#1f1e24]">
       <div className=" flex justify-between h-fit  w-full items-center">
         <div className="flex text-2xl items-center text-zinc-500 gap-2 font-bold">
@@ -52,7 +55,14 @@ const Trending = () => {
           ></Dropdown>
         </div>
       </div>
-      <Cards data={trendingData}></Cards>
+      <InfiniteScroll
+        dataLength={trendingData.length}
+        next={getTrending}
+        hasMore={true}
+        loader={<h1>Loading...</h1>}
+      >
+        <Cards data={trendingData}></Cards>
+      </InfiniteScroll>
     </div>
   ) : (
     <Loading />
