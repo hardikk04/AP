@@ -44,7 +44,7 @@ const HorizontalScroll = () => {
             handleCategory={setCategory}
           ></Dropdown>
         </div>
-        <div className="w-full sm:h-[45vh] flex gap-[1vw] pl-5 overflow-x-auto pb-[1vw] sm:pb-[4vw]">
+        <div className="w-full flex gap-[1vw] pl-5 overflow-x-auto pb-[1vw] sm:pb-[4vw]">
           {trendingData.map((trending, index) => {
             return (
               <div
@@ -74,14 +74,14 @@ const HorizontalScroll = () => {
                       trending.original_title}
                   </h3>
 
-                  <p className="mt-3 text-zinc-300 text-xl">
+                  <p className="mt-3 text-zinc-300 text-xl sm:hidden">
                     {trending.known_for_department
                       ? trending.known_for_department
                       : trending.overview.slice(0, 60)}
                     <Link className="text-blue-500 text-sm">more...</Link>
                   </p>
                   <div className="flex justify-between items-end">
-                    <p className="flex gap-2 mt-2 sm:mt-5">
+                    <p className="flex gap-2 mt-2 sm:mt-2">
                       <i className="ri-megaphone-fill text-yellow-500"></i>
                       {trending.release_date || "Soon..."}
                     </p>
