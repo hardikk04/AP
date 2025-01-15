@@ -23,7 +23,7 @@ const Header = ({ data }) => {
         <div className="flex gap-4 mt-3 text-zinc-300">
           <p className="flex gap-2">
             <i className="ri-megaphone-fill text-yellow-500"></i>
-            {data.release_date}
+            {data.release_date || "Soon..."}
           </p>
           <p className="flex gap-2">
             <i className="ri-album-fill text-yellow-500"></i>
