@@ -13,7 +13,10 @@ const Sidenav = () => {
         </h3>
         <ul>
           <li>
-            <Link className="font-medium block text-lg p-5 hover:bg-[#6556cd] hover:text-white text-gray-500">
+            <Link
+              to="/trending"
+              className="font-medium block text-lg p-5 hover:bg-[#6556cd] hover:text-white text-gray-500"
+            >
               <i className="ri-fire-fill "></i> Trending
             </Link>
           </li>
