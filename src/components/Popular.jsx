@@ -20,9 +20,6 @@ const Popular = () => {
         `${category.toLowerCase()}/popular?page=${page}`
       );
 
-      if (popularData.length > 20) {
-        return setPopularData(data.results);
-      }
       setPopularData((prev) => [...prev, ...data.results]);
       setPage((prev) => prev + 1);
     } catch (error) {
@@ -30,6 +27,7 @@ const Popular = () => {
     }
   };
   useEffect(() => {
+    setPopularData([]);
     getPopular();
   }, [category]);
 

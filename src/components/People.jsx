@@ -20,9 +20,6 @@ const People = () => {
         `/person/${category.toLowerCase()}?page=${page}`
       );
 
-      if (peopleData.length > 20) {
-        return setPeopleData(data.results);
-      }
       setPeopleData((prev) => [...prev, ...data.results]);
       setPage((prev) => prev + 1);
     } catch (error) {
@@ -30,6 +27,7 @@ const People = () => {
     }
   };
   useEffect(() => {
+    setPeopleData([]);
     getPeople();
   }, [category]);
 
@@ -44,9 +42,7 @@ const People = () => {
           <h2 className="uppercase text-2xl">People</h2>
         </div>
         <Topnav></Topnav>
-        <div className="flex gap-4">
-          
-        </div>
+        <div className="flex gap-4"></div>
       </div>
       <InfiniteScroll
         dataLength={peopleData.length}

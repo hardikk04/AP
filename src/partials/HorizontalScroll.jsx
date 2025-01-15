@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Dropdown from "./Dropdown";
 
@@ -7,6 +7,7 @@ import axios from "../utils/axios";
 const HorizontalScroll = () => {
   const [trendingData, setTrendingData] = useState(null);
   const [category, setCategory] = useState("all");
+  const [savedItems, setSavedItems] = useState([]);
 
   const getTrending = async () => {
     try {
@@ -19,6 +20,16 @@ const HorizontalScroll = () => {
       console.log("ERROR : ", error);
     }
   };
+
+  const isItemSaved = (id) => {
+    return savedItems.some((item) => item.id === id);
+  };
+
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem("saved")) || [];
+    setSavedItems(saved);
+  }, []);
+
   useEffect(() => {
     getTrending();
   }, [category]);
@@ -74,7 +85,36 @@ const HorizontalScroll = () => {
                       <i className="ri-megaphone-fill text-yellow-500"></i>
                       {trending.release_date || "Soon..."}
                     </p>
-                    <i className="ri-bookmark-line text-2xl text-white"></i>
+                    <i
+                      onClick={() => {
+                        // Retrieve the current "saved" items from localStorage
+                        const saved =
+                          JSON.parse(localStorage.getItem("saved")) || [];
+
+                        // Check if the item already exists in "saved"
+                        const itemIndex = saved.findIndex(
+                          (item) => item.id === trending.id
+                        ); // Assuming 'trending' has an 'id' field for uniqueness
+
+                        if (itemIndex === -1) {
+                          // If the item doesn't exist, add it to "saved"
+                          saved.push(trending);
+                        } else {
+                          // If the item already exists, remove it from "saved"
+                          saved.splice(itemIndex, 1);
+                        }
+
+                        setSavedItems(saved);
+
+                        // Update the "saved" items in localStorage
+                        localStorage.setItem("saved", JSON.stringify(saved));
+                      }}
+                      className={`${
+                        isItemSaved(trending.id)
+                          ? "ri-bookmark-fill"
+                          : "ri-bookmark-line"
+                      } text-2xl text-white cursor-pointer`}
+                    ></i>
                   </div>
                 </div>
               </div>

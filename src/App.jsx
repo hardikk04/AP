@@ -5,6 +5,7 @@ import Popular from "./components/Popular";
 import Movie from "./components/Movie";
 import Tvshows from "./components/Tvshows";
 import People from "./components/People";
+import Save from "./components/Save";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/movie" element={<Movie />}></Route>
         <Route path="/tvshows" element={<Tvshows />}></Route>
         <Route path="/people" element={<People />}></Route>
+        <Route path="/save" element={<Save />}></Route>
       </Routes>
     </>
   );

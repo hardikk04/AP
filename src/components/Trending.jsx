@@ -21,9 +21,6 @@ const Trending = () => {
         `/trending/${category.toLowerCase()}/${duration.toLowerCase()}?page=${page}`
       );
 
-      if (trendingData.length > 20) {
-        return setTrendingData(data.results);
-      }
       setTrendingData((prev) => [...prev, ...data.results]);
       setPage((prev) => prev + 1);
     } catch (error) {
@@ -31,6 +28,7 @@ const Trending = () => {
     }
   };
   useEffect(() => {
+    setTrendingData([]);
     getTrending();
   }, [category, duration]);
 
@@ -68,7 +66,9 @@ const Trending = () => {
       </InfiniteScroll>
     </div>
   ) : (
-    <Loading />
+    <div className="w-full h-screen bg-[#1f1e24] flex">
+      <Loading></Loading>
+    </div>
   );
 };
 

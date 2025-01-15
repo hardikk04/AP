@@ -52,6 +52,14 @@ const Sidenav = () => {
               <i className="ri-team-fill "></i> People
             </Link>
           </li>
+          <li>
+            <Link
+              to="/save"
+              className="font-medium block text-lg p-5 hover:bg-[#6556cd] hover:text-white text-gray-500"
+            >
+              <i className="ri-bookmark-fill"></i> Saved
+            </Link>
+          </li>
         </ul>
       </nav>
       <hr className="opacity-30" />

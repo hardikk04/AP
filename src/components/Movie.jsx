@@ -20,9 +20,6 @@ const Movie = () => {
         `/movie/${category.toLowerCase()}?page=${page}`
       );
 
-      if (movieData.length > 20) {
-        return setMovieData(data.results);
-      }
       setMovieData((prev) => [...prev, ...data.results]);
       setPage((prev) => prev + 1);
     } catch (error) {
@@ -30,6 +27,7 @@ const Movie = () => {
     }
   };
   useEffect(() => {
+    setMovieData([]);
     getMovie();
   }, [category]);
 

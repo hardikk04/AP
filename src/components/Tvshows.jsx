@@ -20,9 +20,6 @@ const Tvshows = () => {
         `/tv/${category.toLowerCase()}?page=${page}`
       );
 
-      if (tvshowsData.length > 20) {
-        return setTvshowsData(data.results);
-      }
       setTvshowsData((prev) => [...prev, ...data.results]);
       setPage((prev) => prev + 1);
     } catch (error) {
@@ -30,6 +27,7 @@ const Tvshows = () => {
     }
   };
   useEffect(() => {
+    setTvshowsData([]);
     getTvshows();
   }, [category]);
 
