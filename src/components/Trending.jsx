@@ -44,7 +44,7 @@ const Trending = () => {
           <h2 className="uppercase text-2xl">Trending</h2>
         </div>
         <Topnav></Topnav>
-        <div className="flex gap-4">
+        <div className="flex gap-4 sm:flex-col sm:pb-[2vw]">
           <Dropdown
             title={"Category"}
             option={["all", "tv", "movie", "person"]}

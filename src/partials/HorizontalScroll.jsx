@@ -49,7 +49,7 @@ const HorizontalScroll = () => {
             return (
               <div
                 key={index}
-                className="card w-[20%] sm:w-[40%] md:w-[50%] h-full shrink-0 rounded-md overflow-hidden bg-zinc-800"
+                className="card w-[20%] sm:w-[80%] md:w-[50%] h-full shrink-0 rounded-md overflow-hidden bg-zinc-800"
               >
                 <Link>
                   <img

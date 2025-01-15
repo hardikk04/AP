@@ -13,12 +13,12 @@ const Cards = ({ data }) => {
   }, []);
 
   return (
-    <div className="py-[2vw] flex flex-wrap gap-[1vw]">
+    <div className="py-[2vw] flex flex-wrap gap-[1vw] sm:gap-[3vw]">
       {data.map((trending, index) => {
         return (
           <div
             key={index}
-            className="card w-[18%] sm:w-[49%] md:w-[49%] h-full shrink-0 rounded-md overflow-hidden bg-zinc-800"
+            className="card w-[18%] sm:w-[100%] md:w-[49%] h-full shrink-0 rounded-md overflow-hidden bg-zinc-800"
           >
             <img
               className="h-[60%] w-full object-cover rounded-md"
