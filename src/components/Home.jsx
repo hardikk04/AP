@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "../utils/axios";
 
 // Components imports
+// Components imports
 import Sidenav from "../partials/Sidenav";
 import Topnav from "../partials/Topnav";
 import Header from "./Header";
@@ -33,6 +34,7 @@ const Home = () => {
     // Main layout with content when data is available
     <div className="w-full h-screen bg-[#1f1e24] flex">
       <Sidenav />
+
       <div className="sm:w-full md:w-full w-[80%] h-full overflow-x-auto">
         <Topnav />
         <Header data={headerWallpaper} />
